@@ -451,13 +451,7 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-original">Modelo original</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-prediccion-de-ventas-diarias-de-pizza-utilizando-la-distancia-de-wasserstein">Modelo de Predicción de Ventas Diarias de Pizza utilizando la Distancia de Wasserstein</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-modelo">Analisis del Modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Analisis de los residuos del entrenamiento</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-del-modelo">Resultados del Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beneficios-del-modelo">Beneficios del Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Analisis de los residuos del entrenamiento</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-mejor-modelo">Eleccion mejor modelo</a></li>
@@ -769,7 +763,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_9060\159718561.py:55: FutureWarning: Series.interpolate with object dtype is deprecated and will raise in a future version. Call obj.infer_objects(copy=False) before interpolating instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_12016\159718561.py:55: FutureWarning: Series.interpolate with object dtype is deprecated and will raise in a future version. Call obj.infer_objects(copy=False) before interpolating instead.
   df_grouped_quantity_daily[&#39;total_quantity&#39;] = df_grouped_quantity_daily[&#39;total_quantity&#39;].interpolate(method=&#39;linear&#39;)
 </pre></div>
 </div>
@@ -891,7 +885,7 @@ p-valor: 0.1
 La serie es estacionaria
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_9060\3527988587.py:58: InterpolationWarning: The test statistic is outside of the range of p-values available in the
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_12016\3527988587.py:58: InterpolationWarning: The test statistic is outside of the range of p-values available in the
 look-up table. The actual p-value is greater than the p-value returned.
 
   kpss_result = kpss(df_grouped_quantity_daily[&#39;total_quantity&#39;], regression=&#39;c&#39;)
@@ -1135,9 +1129,7 @@ C:\Users\Davidlizcanom2486\miniconda3\envs\ts_venv\lib\site-packages\statsmodels
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\miniconda3\envs\ts_venv\lib\site-packages\statsmodels\base\model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   warnings.warn(&quot;Maximum Likelihood optimization failed to &quot;
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\miniconda3\envs\ts_venv\lib\site-packages\statsmodels\tsa\base\tsa_model.py:837: ValueWarning: No supported index is available. Prediction results will be given with an integer index beginning at `start`.
+C:\Users\Davidlizcanom2486\miniconda3\envs\ts_venv\lib\site-packages\statsmodels\tsa\base\tsa_model.py:837: ValueWarning: No supported index is available. Prediction results will be given with an integer index beginning at `start`.
   return get_prediction_index(
 C:\Users\Davidlizcanom2486\miniconda3\envs\ts_venv\lib\site-packages\statsmodels\tsa\base\tsa_model.py:837: FutureWarning: No supported index is available. In the next version, calling this method in a model without a supported index will result in an exception.
   return get_prediction_index(
@@ -1152,7 +1144,7 @@ MSE: 1024.7008213653862
 MAPE: nan%
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_9060\3235105369.py:128: RuntimeWarning: &#39;&lt;&#39; not supported between instances of &#39;int&#39; and &#39;Timestamp&#39;, sort order is undefined for incomparable objects.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_12016\3235105369.py:128: RuntimeWarning: &#39;&lt;&#39; not supported between instances of &#39;int&#39; and &#39;Timestamp&#39;, sort order is undefined for incomparable objects.
   mape = np.mean(np.abs((test_data_original_scale - predicted_means) / test_data_original_scale)) * 100
 </pre></div>
 </div>
@@ -2567,20 +2559,20 @@ Estadístico: 651.3574678682289, p-valor: 3.626794756558717e-142
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "functional_3"</span>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "functional_4"</span>
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
 ┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ input_layer_3 (<span style="color: #0087ff; text-decoration-color: #0087ff">InputLayer</span>)      │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">7</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)           │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
+│ input_layer_4 (<span style="color: #0087ff; text-decoration-color: #0087ff">InputLayer</span>)      │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">7</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)           │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ bidirectional_2 (<span style="color: #0087ff; text-decoration-color: #0087ff">Bidirectional</span>) │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">7</span>, <span style="color: #00af00; text-decoration-color: #00af00">150</span>)         │        <span style="color: #00af00; text-decoration-color: #00af00">46,200</span> │
+│ bidirectional_3 (<span style="color: #0087ff; text-decoration-color: #0087ff">Bidirectional</span>) │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">7</span>, <span style="color: #00af00; text-decoration-color: #00af00">150</span>)         │        <span style="color: #00af00; text-decoration-color: #00af00">46,200</span> │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ lstm_5 (<span style="color: #0087ff; text-decoration-color: #0087ff">LSTM</span>)                   │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">75</span>)             │        <span style="color: #00af00; text-decoration-color: #00af00">67,800</span> │
+│ lstm_7 (<span style="color: #0087ff; text-decoration-color: #0087ff">LSTM</span>)                   │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">75</span>)             │        <span style="color: #00af00; text-decoration-color: #00af00">67,800</span> │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dropout_3 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dropout</span>)             │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">75</span>)             │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
+│ dropout_4 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dropout</span>)             │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">75</span>)             │             <span style="color: #00af00; text-decoration-color: #00af00">0</span> │
 ├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_6 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">76</span> │
+│ dense_7 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">76</span> │
 └─────────────────────────────────┴────────────────────────┴───────────────┘
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">114,076</span> (445.61 KB)
@@ -2590,26 +2582,46 @@ Estadístico: 651.3574678682289, p-valor: 3.626794756558717e-142
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
 </pre>
 </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/50
-56/56 - 7s - 121ms/step - loss: 0.1146 - val_loss: 0.1197
+56/56 - 9s - 169ms/step - loss: 0.1162 - val_loss: 0.1265
 Epoch 2/50
-56/56 - 2s - 40ms/step - loss: 0.0983 - val_loss: 0.1155
+56/56 - 2s - 41ms/step - loss: 0.0952 - val_loss: 0.1172
 Epoch 3/50
-56/56 - 2s - 32ms/step - loss: 0.0955 - val_loss: 0.1127
+56/56 - 1s - 16ms/step - loss: 0.0971 - val_loss: 0.1135
 Epoch 4/50
-56/56 - 1s - 21ms/step - loss: 0.0933 - val_loss: 0.1120
+56/56 - 1s - 10ms/step - loss: 0.0998 - val_loss: 0.1168
 Epoch 5/50
-56/56 - 2s - 29ms/step - loss: 0.0989 - val_loss: 0.1154
+56/56 - 1s - 13ms/step - loss: 0.0989 - val_loss: 0.1129
 Epoch 6/50
-56/56 - 1s - 18ms/step - loss: 0.0968 - val_loss: 0.1233
+56/56 - 1s - 10ms/step - loss: 0.0943 - val_loss: 0.1210
 Epoch 7/50
-56/56 - 1s - 12ms/step - loss: 0.0916 - val_loss: 0.1231
+56/56 - 1s - 20ms/step - loss: 0.0942 - val_loss: 0.1123
 Epoch 8/50
-56/56 - 1s - 12ms/step - loss: 0.0980 - val_loss: 0.1147
+56/56 - 2s - 40ms/step - loss: 0.0928 - val_loss: 0.1115
 Epoch 9/50
-56/56 - 1s - 12ms/step - loss: 0.0958 - val_loss: 0.1125
+56/56 - 3s - 53ms/step - loss: 0.0946 - val_loss: 0.1127
+Epoch 10/50
+56/56 - 2s - 30ms/step - loss: 0.0936 - val_loss: 0.1110
+Epoch 11/50
+56/56 - 2s - 42ms/step - loss: 0.0944 - val_loss: 0.1181
+Epoch 12/50
+56/56 - 2s - 36ms/step - loss: 0.0908 - val_loss: 0.1129
+Epoch 13/50
+56/56 - 2s - 36ms/step - loss: 0.0918 - val_loss: 0.1108
+Epoch 14/50
+56/56 - 1s - 11ms/step - loss: 0.0938 - val_loss: 0.1107
+Epoch 15/50
+56/56 - 1s - 11ms/step - loss: 0.0907 - val_loss: 0.1111
+Epoch 16/50
+56/56 - 1s - 12ms/step - loss: 0.0901 - val_loss: 0.1148
+Epoch 17/50
+56/56 - 1s - 12ms/step - loss: 0.0898 - val_loss: 0.1138
+Epoch 18/50
+56/56 - 1s - 11ms/step - loss: 0.0892 - val_loss: 0.1144
+Epoch 19/50
+56/56 - 1s - 10ms/step - loss: 0.0874 - val_loss: 0.1173
 Cargando el mejor modelo: PizzaSales_LSTM_weights.15-0.1103.keras con val_loss: 0.1103
-<span class=" -Color -Color-Bold">1/3</span> <span class=" -Color -Color-Green">━━━━━━</span><span class=" -Color -Color-White">━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">1s</span> 629ms/stepWARNING:tensorflow:5 out of the last 40 calls to &lt;function TensorFlowTrainer.make_predict_function.&lt;locals&gt;.one_step_on_data_distributed at 0x000001BC2E0B00D0&gt; triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
-<span class=" -Color -Color-Bold">3/3</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">1s</span> 307ms/step
+WARNING:tensorflow:6 out of the last 41 calls to &lt;function TensorFlowTrainer.make_predict_function.&lt;locals&gt;.one_step_on_data_distributed at 0x000001BC1A86D550&gt; triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+<span class=" -Color -Color-Bold">3/3</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">1s</span> 295ms/step
 Longitud de predicciones: 71
 Longitud de valores reales: 71
 MAE for the validation set: 20.8465
@@ -2707,6 +2719,8 @@ Los residuos no siguen una distribución normal (p &lt;= 0.05)
 <img alt="_images/f37815b1849214a843b67f19277e5dcf36c3bf18533c0534ea2edcd687d3c487.png" src="_images/f37815b1849214a843b67f19277e5dcf36c3bf18533c0534ea2edcd687d3c487.png" />
 </div>
 </div>
+<p>Los resultados del análisis de residuos de entrenamiento del modelo LSTM indican ciertos aspectos clave. En el boxplot, los residuos de los tres primeros trimestres tienen tamaños similares y cercanos a cero, mientras que el cuarto trimestre no se graficó, lo que limita una evaluación completa de la estabilidad en los errores a lo largo del año. Los gráficos de ACF y PACF muestran que todos los rezagos están dentro de la banda de significancia, lo cual es positivo, ya que sugiere que no hay autocorrelación significativa en los residuos y que estos se comportan de forma aleatoria.</p>
+<p>La prueba de Jarque-Bera muestra un estadístico de 282.65 y un p-valor de 4.19e-62, lo que indica que los residuos no siguen una distribución normal (p &lt;= 0.05). Esto sugiere que el modelo no capta completamente la estructura de los datos y deja aspectos sin modelar. En conjunto, aunque el modelo no presenta autocorrelación en los errores, la falta de normalidad y la ausencia del último trimestre en el análisis reflejan que podría beneficiarse de ajustes para mejorar su precisión y adaptación a la variabilidad de los datos.</p>
 </section>
 <section id="id5">
 <h3>Analisis de los residuos de la prediccion<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
@@ -2714,6 +2728,7 @@ Los residuos no siguen una distribución normal (p &lt;= 0.05)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
 
 <span class="c1"># Calcular los residuos</span>
 <span class="n">residuals</span> <span class="o">=</span> <span class="n">real_sales_val</span> <span class="o">-</span> <span class="n">pred_sales</span>
@@ -2728,16 +2743,26 @@ Los residuos no siguen una distribución normal (p &lt;= 0.05)
 <span class="n">jarque_bera_stat</span><span class="p">,</span> <span class="n">jarque_bera_pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">jarque_bera</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resultados de la prueba de Jarque-Bera:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estadístico: </span><span class="si">{</span><span class="n">jarque_bera_stat</span><span class="si">}</span><span class="s2">, p-valor: </span><span class="si">{</span><span class="n">jarque_bera_pvalue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Realizar la prueba de Ljung-Box para los residuos</span>
+<span class="n">ljung_box_result</span> <span class="o">=</span> <span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados de la prueba de Ljung-Box:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ljung_box_result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados de la prueba de Jarque-Bera:
 Estadístico: 138.64306551707668, p-valor: 7.835033286826069e-31
+
+Resultados de la prueba de Ljung-Box:
+      lb_stat  lb_pvalue
+10  18.176117   0.052064
 </pre></div>
 </div>
 </div>
 </div>
+<p>Los resultados del análisis de los residuos de predicción indican que el modelo tiene algunas limitaciones. La prueba de Jarque-Bera muestra un estadístico de 138.64 y un p-valor de 7.83e-31, lo que sugiere que los residuos no siguen una distribución normal (p &lt;= 0.05). Esto indica que el modelo no ha captado completamente la estructura subyacente en los datos, lo que podría reflejar patrones o sesgos residuales. Por otro lado, la prueba de Ljung-Box presenta un estadístico de 18.18 y un p-valor de 0.052, lo que se encuentra justo en el límite de significancia. Esto sugiere que, aunque no hay autocorrelación significativa de manera estricta, los residuos presentan cierta dependencia que podría afectar la precisión predictiva del modelo. En resumen, estos resultados indican que, a pesar de un comportamiento relativamente independiente en los errores, el modelo podría beneficiarse de ajustes adicionales para mejorar su capacidad de capturar patrones y reducir posibles sesgos en las predicciones.</p>
 </section>
 </section>
 </section>
@@ -2777,6 +2802,7 @@ El proceso de predicción que implementé funciona de la siguiente manera:</p></
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">wasserstein_distance</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">TimeSeriesSplit</span>
 
 <span class="c1"># Leer el archivo Excel</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\Davidlizcanom2486\Documents\Timeseries\jbook_ts202330\docs\PizzaSales.xlsx&quot;</span><span class="p">)</span>
@@ -2798,6 +2824,10 @@ El proceso de predicción que implementé funciona de la siguiente manera:</p></
 <span class="n">df_grouped_quantity_daily</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;lag_</span><span class="si">{</span><span class="n">lag</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_grouped_quantity_daily</span><span class="p">[</span><span class="s1">&#39;total_quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">lag</span><span class="p">)</span>
 <span class="n">df_grouped_quantity_daily</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;moving_average_</span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_grouped_quantity_daily</span><span class="p">[</span><span class="s1">&#39;total_quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
+<span class="c1"># Agregar más características temporales</span>
+<span class="n">df_grouped_quantity_daily</span><span class="p">[</span><span class="s1">&#39;day_of_week&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_grouped_quantity_daily</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofweek</span>
+<span class="n">df_grouped_quantity_daily</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_grouped_quantity_daily</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span>
+
 <span class="c1"># Eliminar filas con valores nulos</span>
 <span class="n">df_grouped_quantity_daily</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -2817,23 +2847,43 @@ El proceso de predicción que implementé funciona de la siguiente manera:</p></
 <span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
 <span class="c1"># Función para predecir utilizando la distancia de Wasserstein</span>
-<span class="k">def</span> <span class="nf">wasserstein_prediction</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_X</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">wasserstein_prediction</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_X</span><span class="p">,</span> <span class="n">test_y</span><span class="p">):</span>
     <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_X</span><span class="p">)):</span>
         <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_X</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_X</span><span class="p">)):</span>
-            <span class="c1"># Calcular la distancia de Wasserstein</span>
-            <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">wasserstein_distance</span><span class="p">(</span><span class="n">train_y</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">train_y</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> 
+            <span class="c1"># Asegurarse de que los valores no sean nulos antes de calcular la distancia</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">train_y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">test_y</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">wasserstein_distance</span><span class="p">([</span><span class="n">train_y</span><span class="p">[</span><span class="n">j</span><span class="p">]],</span> <span class="p">[</span><span class="n">test_y</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> 
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>  <span class="c1"># Asignar una distancia infinita si hay NaN</span>
 
-        <span class="c1"># Hacer la predicción ponderada</span>
+        <span class="c1"># Hacer la predicción ponderada solo si hay distancias válidas</span>
         <span class="n">weight</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">dist</span><span class="p">)</span>
-        <span class="n">prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weight</span> <span class="o">*</span> <span class="n">train_y</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
+        <span class="n">weight</span><span class="p">[</span><span class="n">dist</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Ignorar pesos infinitos</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Evitar división por cero</span>
+            <span class="n">prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weight</span> <span class="o">*</span> <span class="n">train_y</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  <span class="c1"># Asignar NaN si no hay pesos válidos</span>
+
         <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
 
-<span class="c1"># Realizar predicciones</span>
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">)</span>
+<span class="c1"># Implementar validación cruzada para mejorar el modelo</span>
+<span class="n">tscv</span> <span class="o">=</span> <span class="n">TimeSeriesSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">predictions_cv_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">tscv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">):</span>
+    <span class="n">X_train_cv</span><span class="p">,</span> <span class="n">X_test_cv</span> <span class="o">=</span> <span class="n">X_train_scaled</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X_train_scaled</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">y_train_cv</span><span class="p">,</span> <span class="n">y_test_cv</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    
+    <span class="n">predictions_cv</span> <span class="o">=</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_cv</span><span class="p">,</span> <span class="n">y_train_cv</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>  <span class="c1"># Pasar y_test aquí</span>
+    <span class="n">predictions_cv_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">predictions_cv</span><span class="p">)</span>
+
+<span class="c1"># Promediar las predicciones de cada pliegue (opcional)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">predictions_cv_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Usar nanmean para ignorar NaNs</span>
 
 <span class="c1"># Graficar los resultados</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -2848,42 +2898,42 @@ El proceso de predicción que implementé funciona de la siguiente manera:</p></
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1"># Calcular métricas de error</span>
-<span class="n">mape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">predictions</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
-<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">))</span>
-<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+<span class="c1"># Calcular métricas de error solo si hay predicciones válidas</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+    <span class="n">mape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">predictions</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">))</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
 
-<span class="c1"># Imprimir las métricas finales</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MAPE: </span><span class="si">{</span><span class="n">mape</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MAE: </span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MSE: </span><span class="si">{</span><span class="n">mse</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R² final: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1"># Imprimir las métricas finales</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MAPE: </span><span class="si">{</span><span class="n">mape</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MAE: </span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MSE: </span><span class="si">{</span><span class="n">mse</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R² final: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No se pueden calcular métricas debido a predicciones inválidas.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e0a6c0c5d873ecefde5d7cacd639ca2d933261f649527aefa0cc36ff4044f630.png" src="_images/e0a6c0c5d873ecefde5d7cacd639ca2d933261f649527aefa0cc36ff4044f630.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE: 16.7205%
-MAE: 22.6724
-RMSE: 32.9382
-MSE: 1084.9247
-R² final: 0.0641
+<img alt="_images/a719fd915d92a76f55f83601b5880d01232f590d93bceaf80e01f06f207fb4e9.png" src="_images/a719fd915d92a76f55f83601b5880d01232f590d93bceaf80e01f06f207fb4e9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE: 10.6017%
+MAE: 14.3514
+RMSE: 27.9417
+MSE: 780.7400
+R² final: 0.3265
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="analisis-del-modelo">
-<h2>Analisis del Modelo<a class="headerlink" href="#analisis-del-modelo" title="Link to this heading">#</a></h2>
-<p>El modelo de predicción de ventas diarias de pizza basado en la distancia de Wasserstein fue evaluado mediante una serie de métricas que reflejan su rendimiento. Estas métricas incluyen el MAPE, MAE, RMSE, MSE y el coeficiente de determinación (R²), y ofrecen una visión general sobre la precisión y efectividad del modelo. A continuación, analizamos los resultados obtenidos.</p>
-<p>La primera métrica a considerar es el MAPE (Error Porcentual Absoluto Medio), cuyo valor es del 16.72%. Este valor indica que el modelo, en promedio, se desvía un 16.72% de las ventas reales. Desde una perspectiva empresarial, un MAPE inferior al 20% puede considerarse un buen indicador de predicción, especialmente en contextos donde las ventas fluctúan diariamente por factores estacionales o promociones. Aunque existe margen para mejorar la precisión, este resultado sugiere que el modelo ofrece una predicción razonablemente aceptable en términos relativos.</p>
-<p>Por otro lado, el MAE (Error Absoluto Medio) es de 22.67, lo que significa que el modelo se equivoca, en promedio, en 22.67 pizzas por día. En términos absolutos, este error puede ser relevante dependiendo del volumen de ventas diarias. En un negocio donde se venden cientos de pizzas al día, este nivel de error puede ser tolerable, aunque reducirlo sería beneficioso para mejorar la precisión en la planificación operativa.</p>
-<p>El RMSE (Raíz del Error Cuadrático Medio) es de 32.94, una métrica que, al penalizar más los errores grandes, sugiere que, aunque el modelo realiza predicciones adecuadas en general, existen días en los que los errores son mayores, lo que afecta esta métrica. Sin embargo, este valor sigue siendo razonable dentro del contexto de las ventas diarias de pizza, donde los patrones de demanda pueden ser difíciles de predecir debido a fluctuaciones imprevisibles.</p>
-<p>El MSE (Error Cuadrático Medio), que es el cuadrado del RMSE, es de 1084.92. Aunque esta métrica no es tan intuitiva, sigue destacando la presencia de algunos días con errores significativos, que el modelo no ha capturado del todo bien. Sin embargo, dado que el modelo no utiliza factores adicionales como promociones o efectos climáticos, estos resultados pueden considerarse satisfactorios para un primer enfoque basado en características básicas como el retardo y la media móvil.</p>
-<p>Finalmente, el R² (Coeficiente de Determinación), que mide la proporción de la varianza de las ventas diarias explicada por el modelo, es de 0.0641. Aunque este valor indica que el modelo solo explica alrededor del 6.41% de la variabilidad en las ventas, es importante resaltar que esta métrica suele ser baja en series temporales con alta volatilidad o en modelos sin muchas variables explicativas. Si bien un R² más alto sería deseable, este resultado sigue siendo un avance frente a resultados previos y demuestra que el modelo tiene potencial de mejora, especialmente si se integran características adicionales.</p>
+<p>He evaluado el modelo de predicción de ventas diarias de pizza basado en la distancia de Wasserstein mediante varias métricas que reflejan su rendimiento: MAPE, MAE, RMSE, MSE y el coeficiente de determinación (R²).</p>
+<p>El MAPE (Error Porcentual Absoluto Medio) tiene un valor de 10.6017%, lo que indica que, en promedio, el modelo se desvía un 10.6017% de las ventas reales. Considero que un MAPE inferior al 20% es un buen indicador de predicción, lo que sugiere que el modelo ofrece una predicción razonablemente aceptable.</p>
+<p>El MAE (Error Absoluto Medio) es de 14.3514, lo que significa que el modelo se equivoca, en promedio, en aproximadamente 14 pizzas por día. Este nivel de error puede ser tolerable dependiendo del volumen de ventas diarias, aunque sería beneficioso reducirlo para mejorar la precisión en la planificación operativa.</p>
+<p>El RMSE (Raíz del Error Cuadrático Medio) es de 27.9417. Esta métrica sugiere que, aunque el modelo realiza predicciones adecuadas en general, existen días en los que los errores son mayores, lo que afecta esta métrica. Sin embargo, este valor sigue siendo razonable dado que las ventas diarias pueden ser difíciles de predecir debido a fluctuaciones imprevisibles.</p>
+<p>El MSE (Error Cuadrático Medio) es de 780.7400. Aunque esta métrica no es tan intuitiva, sigue destacando la presencia de algunos días con errores significativos que el modelo no ha capturado del todo bien. Sin embargo, considerando que el modelo no utiliza factores adicionales como promociones o efectos climáticos, estos resultados pueden considerarse satisfactorios para un primer enfoque basado en características básicas.</p>
+<p>Finalmente, el R² (Coeficiente de Determinación) es de 0.3265, lo que indica que el modelo explica alrededor del 32.65% de la variabilidad en las ventas. Aunque un R² más alto sería deseable, este resultado sigue siendo un avance frente a resultados previos y demuestra que el modelo tiene potencial de mejora, especialmente si se integran características adicionales.</p>
 </section>
 <section id="id6">
 <h2>Analisis de los residuos del entrenamiento<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
@@ -2933,19 +2983,19 @@ R² final: 0.0641
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_2228\3686295087.py:13: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">140</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Supongamos que el resto del código anterior ya se ha ejecutado y tienes los residuos del entrenamiento</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">residuals_train</span> <span class="o">=</span> <span class="n">y_train</span> <span class="o">-</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Boxplot trimestral</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Crear una columna de período trimestral para los datos de entrenamiento</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;quarter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span>
 
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  train_data[&#39;quarter&#39;] = train_data.index.to_period(&#39;Q&#39;)
+<span class="ne">TypeError</span>: wasserstein_prediction() missing 1 required positional argument: &#39;test_y&#39;
 </pre></div>
 </div>
-<img alt="_images/6f6534bd8677b9bcb3352a1d8e576e3b6a4000ad1d0943982b3f40632bd333dc.png" src="_images/6f6534bd8677b9bcb3352a1d8e576e3b6a4000ad1d0943982b3f40632bd333dc.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico de Jarque-Bera: 1766.1930, Valor p: 0.0000
-</pre></div>
-</div>
-<img alt="_images/5150d2bf857d66fe39e92cba900f7a8799605381434614fec4610c6015a593e9.png" src="_images/5150d2bf857d66fe39e92cba900f7a8799605381434614fec4610c6015a593e9.png" />
 </div>
 </div>
 <p>El primer gráfico, el <strong>Boxplot Trimestral de los Residuos del Modelo (Entrenamiento)</strong>, presenta la distribución de los residuos a lo largo de cuatro trimestres (2015Q1 - 2015Q4). En cada trimestre se observa un boxplot que permite analizar cómo varían los residuos. Los resultados son alentadores en cuanto a la simetría de los residuos, ya que en cada trimestre la mediana se encuentra cercana a cero, lo que indica que el modelo no presenta un sesgo sistemático en sus predicciones. No obstante, los boxplots también revelan la presencia de valores atípicos (outliers), tanto por encima de 40 como por debajo de -20. Esto sugiere que el modelo, aunque logra un buen ajuste en general, tiene dificultades para capturar algunos puntos extremos o eventos inusuales en los datos, lo que podría estar relacionado con fluctuaciones bruscas o eventos no capturados por las variables explicativas.</p>
@@ -2986,36 +3036,9 @@ Estadístico de Ljung-Box (lag=10): 14.3442, Valor p: 0.1579
 <p>El análisis de los residuos del modelo muestra aspectos importantes sobre su rendimiento.</p>
 <p>El Estadístico de Jarque-Bera de 71.2008 con un valor p de 0.0000 indica que los residuos no siguen una distribución normal. Al tener un valor p extremadamente bajo, se rechaza la hipótesis de normalidad, lo que sugiere que los residuos presentan cierta asimetría o curtosis. Aunque este valor es significativamente menor en comparación con resultados anteriores, sigue indicando que el modelo produce residuos alejados de la distribución normal, posiblemente por la presencia de valores atípicos o eventos extremos.</p>
 <p>Por otro lado, el Estadístico de Ljung-Box con un lag de 10 arroja un valor de 14.3442 y un valor p de 0.1579. Esto indica que no hay autocorrelación significativa en los primeros 10 rezagos de los residuos, lo que es positivo para el modelo. La falta de autocorrelación sugiere que el modelo ha capturado correctamente la estructura temporal de la serie hasta ese punto, generando residuos independientes.</p>
+</section>
+</section>
 <hr class="docutils" />
-<p>El modelo <strong>XGBoost</strong> aplicado a la predicción de ventas diarias de pizza ha demostrado ser un enfoque eficaz, obteniendo resultados positivos que lo destacan como una herramienta útil para la toma de decisiones. A continuación, se detallan los resultados obtenidos junto con las razones por las cuales este modelo es beneficioso.</p>
-<section id="resultados-del-modelo">
-<h3>Resultados del Modelo<a class="headerlink" href="#resultados-del-modelo" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>MAPE</strong>: <strong>16.11%</strong><br />
-Este porcentaje indica que, en promedio, las predicciones del modelo se desvían un 16.11% de los valores reales. Este nivel de precisión es aceptable para la industria de alimentos, donde las variaciones en la demanda pueden ser influenciadas por múltiples factores.</p></li>
-<li><p><strong>MAE</strong>: <strong>19.5215</strong><br />
-La media del error absoluto de aproximadamente 19.52 unidades sugiere que el modelo está haciendo predicciones que, en promedio, se desvían en menos de 20 ventas de las cifras reales. Esto es crucial para planificar la producción y optimizar el inventario.</p></li>
-<li><p><strong>RMSE</strong>: <strong>28.3771</strong><br />
-Con un error cuadrático medio de 28.38, el modelo resalta que, aunque hay algunos errores más significativos, el rendimiento general es razonable. Este indicador es especialmente útil en el contexto de la gestión de recursos, ya que permite anticipar posibles desajustes en las operaciones.</p></li>
-<li><p><strong>R²</strong>: <strong>0.3053</strong><br />
-Este valor sugiere que el modelo explica aproximadamente el 30.53% de la variabilidad en las ventas diarias. Aunque no es extremadamente alto, indica que el modelo capta algunas tendencias y patrones en los datos, lo que puede guiar a los gerentes en la toma de decisiones basadas en tendencias pasadas.</p></li>
-</ul>
-</section>
-<section id="beneficios-del-modelo">
-<h3>Beneficios del Modelo<a class="headerlink" href="#beneficios-del-modelo" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>Adaptabilidad a los Datos</strong>: XGBoost es un modelo que se adapta bien a conjuntos de datos con características no lineales, lo que es común en las series temporales de ventas. Esto permite capturar patrones estacionales y tendencias que otros modelos más simples podrían pasar por alto.</p></li>
-<li><p><strong>Optimización de Recursos</strong>: Con resultados que muestran un error relativamente bajo, el modelo permite una mejor planificación de la producción y gestión del inventario. Al predecir la demanda de manera más precisa, se pueden reducir costos asociados a la sobreproducción o al desabastecimiento.</p></li>
-<li><p><strong>Facilidad de Interpretación</strong>: XGBoost ofrece características que permiten entender qué variables son más influyentes en las predicciones. Esto proporciona a los gerentes información valiosa para ajustar estrategias de marketing y promociones basadas en datos históricos.</p></li>
-<li><p><strong>Escalabilidad</strong>: Dado que el modelo se basa en árboles de decisión, es escalable y puede manejar grandes volúmenes de datos sin un deterioro significativo en el rendimiento, lo que es fundamental en el entorno dinámico de las ventas.</p></li>
-</ol>
-</section>
-<section id="conclusiones">
-<h3>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h3>
-<p>En resumen, el modelo XGBoost no solo proporciona predicciones relativamente precisas, sino que también ofrece beneficios significativos para la gestión operativa. Con un rendimiento que refleja una comprensión adecuada de las tendencias en las ventas, este modelo puede servir como base para futuras mejoras y refinamientos, contribuyendo a la optimización de las operaciones y a la satisfacción del cliente.</p>
-</section>
-</section>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="eleccion-mejor-modelo">
 <h1>Eleccion mejor modelo<a class="headerlink" href="#eleccion-mejor-modelo" title="Link to this heading">#</a></h1>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -3071,12 +3094,12 @@ Este valor sugiere que el modelo explica aproximadamente el 30.53% de la variabi
 <td><p>14.87%</p></td>
 <td><p>-0.04</p></td>
 </tr>
-<tr class="row-even"><td><p>XGBoost</p></td>
-<td><p>19.52</p></td>
-<td><p>28.38</p></td>
-<td><p>805.26</p></td>
-<td><p>16.11%</p></td>
-<td><p>0.31</p></td>
+<tr class="row-even"><td><p>Wasserstein Time Series</p></td>
+<td><p>22.67</p></td>
+<td><p>32.94</p></td>
+<td><p>1084.92</p></td>
+<td><p>16.72%</p></td>
+<td><p>0.0641</p></td>
 </tr>
 </tbody>
 </table>
@@ -3218,13 +3241,7 @@ Este valor sugiere que el modelo explica aproximadamente el 30.53% de la variabi
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-original">Modelo original</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-prediccion-de-ventas-diarias-de-pizza-utilizando-la-distancia-de-wasserstein">Modelo de Predicción de Ventas Diarias de Pizza utilizando la Distancia de Wasserstein</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-del-modelo">Analisis del Modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Analisis de los residuos del entrenamiento</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-del-modelo">Resultados del Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beneficios-del-modelo">Beneficios del Modelo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Analisis de los residuos del entrenamiento</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eleccion-mejor-modelo">Eleccion mejor modelo</a></li>
