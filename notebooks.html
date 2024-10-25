@@ -763,7 +763,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_12016\159718561.py:55: FutureWarning: Series.interpolate with object dtype is deprecated and will raise in a future version. Call obj.infer_objects(copy=False) before interpolating instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_11440\159718561.py:55: FutureWarning: Series.interpolate with object dtype is deprecated and will raise in a future version. Call obj.infer_objects(copy=False) before interpolating instead.
   df_grouped_quantity_daily[&#39;total_quantity&#39;] = df_grouped_quantity_daily[&#39;total_quantity&#39;].interpolate(method=&#39;linear&#39;)
 </pre></div>
 </div>
@@ -885,7 +885,7 @@ p-valor: 0.1
 La serie es estacionaria
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_12016\3527988587.py:58: InterpolationWarning: The test statistic is outside of the range of p-values available in the
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_11440\3527988587.py:58: InterpolationWarning: The test statistic is outside of the range of p-values available in the
 look-up table. The actual p-value is greater than the p-value returned.
 
   kpss_result = kpss(df_grouped_quantity_daily[&#39;total_quantity&#39;], regression=&#39;c&#39;)
@@ -1144,7 +1144,7 @@ MSE: 1024.7008213653862
 MAPE: nan%
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_12016\3235105369.py:128: RuntimeWarning: &#39;&lt;&#39; not supported between instances of &#39;int&#39; and &#39;Timestamp&#39;, sort order is undefined for incomparable objects.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_11440\3235105369.py:128: RuntimeWarning: &#39;&lt;&#39; not supported between instances of &#39;int&#39; and &#39;Timestamp&#39;, sort order is undefined for incomparable objects.
   mape = np.mean(np.abs((test_data_original_scale - predicted_means) / test_data_original_scale)) * 100
 </pre></div>
 </div>
@@ -2771,29 +2771,10 @@ Resultados de la prueba de Ljung-Box:
 <section id="modelo-de-prediccion-de-ventas-diarias-de-pizza-utilizando-la-distancia-de-wasserstein">
 <h2>Modelo de Predicción de Ventas Diarias de Pizza utilizando la Distancia de Wasserstein<a class="headerlink" href="#modelo-de-prediccion-de-ventas-diarias-de-pizza-utilizando-la-distancia-de-wasserstein" title="Link to this heading">#</a></h2>
 <p>En este proyecto, hemos implementado un modelo de predicción para las ventas diarias de pizza basado en la distancia de Wasserstein, una métrica diseñada para comparar distribuciones de probabilidad. A diferencia de los modelos tradicionales como regresiones o modelos ARIMA, este enfoque aprovecha una técnica basada en la similitud entre distribuciones de ventas pasadas para hacer predicciones ponderadas sobre las futuras ventas.</p>
-<ol class="arabic simple">
-<li><p>Configuración de las características del modelo
-La predicción de ventas de pizza sigue patrones complejos, influenciados por diferentes factores temporales como la estacionalidad o tendencias a corto plazo. Por eso, decidí construir dos características clave que capturan la dinámica temporal:</p></li>
-</ol>
-<p>Lag de 30 días: El lag representa las ventas de hace 30 días, introduciendo como predictor el comportamiento que las ventas tuvieron durante ese periodo en el pasado. El uso de lag permite capturar patrones cíclicos o estacionales de mediano plazo. El valor de 30 días lo elegí después de analizar que podría reflejar ciertos ciclos que afectan las ventas, como campañas mensuales o eventos recurrentes.</p>
-<p>Media móvil de 7 días: Este predictor captura la tendencia a corto plazo, promediando las ventas de la última semana. La media móvil de 7 días suaviza los picos diarios, lo cual es importante en el contexto de ventas donde los fines de semana suelen tener comportamientos muy diferentes a los días entre semana. Esto ayuda a crear una tendencia más general que refleja mejor el comportamiento reciente del mercado.</p>
-<p>Estas dos características permiten capturar tanto las fluctuaciones de corto como de mediano plazo en las ventas, mejorando la capacidad del modelo para detectar patrones repetitivos en las series temporales.</p>
-<ol class="arabic simple" start="2">
-<li><p>Preparación y división de los datos
-Después de agregar las características, realicé la división de los datos en dos conjuntos: uno de entrenamiento y otro de prueba. La estrategia fue utilizar los últimos 55 días de datos como el conjunto de prueba, que corresponde aproximadamente a dos meses de ventas recientes.</p></li>
-<li><p>Normalización de las características
-Es importante que las características (lag y media móvil) estén normalizadas, es decir, transformadas para que estén en una escala comparable. Esto es fundamental en nuestro caso porque, si bien el lag y la media móvil son proporcionales a las ventas, podrían tener magnitudes diferentes. La normalización mediante StandardScaler ajusta las características para que tengan media cero y desviación estándar uno, lo que asegura que las predicciones ponderadas no se vean dominadas por una característica con valores más grandes.</p></li>
-<li><p>Distancia de Wasserstein
-La distancia de Wasserstein se usa comúnmente en teoría de la probabilidad y otras áreas para medir cuán diferentes son dos distribuciones. Esta métrica, también conocida como “distancia de la tierra”, tiene varias aplicaciones en comparación de distribuciones y optimización.</p></li>
-</ol>
-<p>¿Por qué usarla? En nuestro caso, la distancia de Wasserstein nos permite comparar la similitud entre los patrones de ventas de diferentes días en el conjunto de entrenamiento. La lógica detrás de esta métrica es que los días con distribuciones similares de ventas deberían tener comportamientos de ventas futuros similares. Usamos esta métrica para hacer predicciones ponderadas en función de la similitud de los patrones pasados y actuales.</p>
-<ol class="arabic simple" start="5">
-<li><p>Predicción basada en Wasserstein
-El proceso de predicción que implementé funciona de la siguiente manera:</p></li>
-</ol>
-<p>Para cada día en el conjunto de prueba, calculo la distancia de Wasserstein entre ese día y todos los días en el conjunto de entrenamiento. Esto me da una idea de qué tan similares son las ventas de un día de prueba con respecto a los patrones históricos.</p>
-<p>Ponderación: A partir de la distancia calculada, genero un conjunto de pesos inversamente proporcionales a la distancia (es decir, cuanto más pequeña la distancia, mayor es el peso). La idea aquí es que los días que se parecen más (menor distancia) deberían tener mayor influencia en la predicción.</p>
-<p>Predicción final: Con los pesos generados, realizo una predicción ponderada. En otras palabras, se toman los valores de ventas pasadas (del conjunto de entrenamiento) y se ponderan por la similitud con el día que se está prediciendo. Así, los días más similares tienen una mayor influencia en la predicción final.</p>
+<p>He desarrollado un modelo de predicción de ventas diarias de pizza utilizando la distancia de Wasserstein, una técnica que permite medir la diferencia entre distribuciones de probabilidad. Este modelo se centra en analizar cómo se distribuyen las ventas a lo largo del tiempo y hacer predicciones basadas en patrones históricos.</p>
+<p>Para la configuración del modelo, se han utilizado características como la cantidad total de pizzas vendidas, un retraso de 30 días y un promedio móvil de 7 días, además de agregar variables que representan el día de la semana y el mes. Estas características ayudan a capturar la estacionalidad y las tendencias en las ventas.</p>
+<p>El modelo se basa en el principio de que la distancia de Wasserstein puede ser utilizada para realizar predicciones ponderadas, lo que significa que se consideran las distancias entre las ventas reales y las predicciones anteriores para ajustar las estimaciones futuras. Esto permite que el modelo se adapte a las variaciones en las ventas y ofrezca pronósticos más precisos.</p>
+<p>Usualmente, la serie de Wasserstein se utiliza en análisis estadístico y aprendizaje automático para comparar distribuciones de datos, y es especialmente útil en contextos donde los datos son ruidosos o presentan variaciones significativas. En este caso, me ayuda a predecir las ventas de pizza de manera más robusta, considerando la complejidad inherente a los datos de series temporales.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -2947,7 +2928,8 @@ R² final: 0.3265
 <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
 
 <span class="c1"># Supongamos que el resto del código anterior ya se ha ejecutado y tienes los residuos del entrenamiento</span>
-<span class="n">residuals_train</span> <span class="o">=</span> <span class="n">y_train</span> <span class="o">-</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">)</span>
+<span class="n">predictions_train</span> <span class="o">=</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">residuals_train</span> <span class="o">=</span> <span class="n">y_train</span> <span class="o">-</span> <span class="n">predictions_train</span>
 
 <span class="c1"># Boxplot trimestral</span>
 <span class="c1"># Crear una columna de período trimestral para los datos de entrenamiento</span>
@@ -2983,26 +2965,26 @@ R² final: 0.3265
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">140</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Supongamos que el resto del código anterior ya se ha ejecutado y tienes los residuos del entrenamiento</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">residuals_train</span> <span class="o">=</span> <span class="n">y_train</span> <span class="o">-</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Boxplot trimestral</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Crear una columna de período trimestral para los datos de entrenamiento</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;quarter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Davidlizcanom2486\AppData\Local\Temp\ipykernel_2228\1510420403.py:14: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
-<span class="ne">TypeError</span>: wasserstein_prediction() missing 1 required positional argument: &#39;test_y&#39;
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train_data[&#39;quarter&#39;] = train_data.index.to_period(&#39;Q&#39;)
 </pre></div>
 </div>
+<img alt="_images/0391465f27b98033511c3e89882813d4638e66ef20965dbb17abe0c56eda5614.png" src="_images/0391465f27b98033511c3e89882813d4638e66ef20965dbb17abe0c56eda5614.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico de Jarque-Bera: 1542.3316, Valor p: 0.0000
+</pre></div>
+</div>
+<img alt="_images/358b622b61e039037d45c12f30db320a36a444c0baaeaa04ca2c0c8fb188d15b.png" src="_images/358b622b61e039037d45c12f30db320a36a444c0baaeaa04ca2c0c8fb188d15b.png" />
 </div>
 </div>
 <p>El primer gráfico, el <strong>Boxplot Trimestral de los Residuos del Modelo (Entrenamiento)</strong>, presenta la distribución de los residuos a lo largo de cuatro trimestres (2015Q1 - 2015Q4). En cada trimestre se observa un boxplot que permite analizar cómo varían los residuos. Los resultados son alentadores en cuanto a la simetría de los residuos, ya que en cada trimestre la mediana se encuentra cercana a cero, lo que indica que el modelo no presenta un sesgo sistemático en sus predicciones. No obstante, los boxplots también revelan la presencia de valores atípicos (outliers), tanto por encima de 40 como por debajo de -20. Esto sugiere que el modelo, aunque logra un buen ajuste en general, tiene dificultades para capturar algunos puntos extremos o eventos inusuales en los datos, lo que podría estar relacionado con fluctuaciones bruscas o eventos no capturados por las variables explicativas.</p>
 <p>En cuanto a la dispersión, se observa que los residuos están distribuidos de manera relativamente uniforme a lo largo de los trimestres, lo que sugiere que no hay un deterioro evidente del modelo en ningún periodo específico. Sin embargo, los outliers en cada trimestre indican que, en algunos casos, las predicciones del modelo difieren significativamente de los valores reales, lo que puede impactar su precisión en situaciones específicas.</p>
 <p>El segundo gráfico presenta las funciones de <strong>ACF (Autocorrelation Function)</strong> y <strong>PACF (Partial Autocorrelation Function)</strong> de los residuos del entrenamiento. El análisis del ACF muestra que la mayoría de las correlaciones de los residuos con sus rezagos están dentro de las bandas de confianza, lo que es positivo, ya que indica que no hay patrones de autocorrelación fuertes en los residuos. Esto sugiere que el modelo ha capturado la mayor parte de la estructura temporal de los datos. No obstante, se observa una leve autocorrelación significativa en el primer rezago, lo que podría indicar que hay alguna dependencia a corto plazo que no ha sido completamente modelada.</p>
 <p>El gráfico de PACF, por su parte, refuerza esta observación, ya que también muestra un pico significativo en el primer rezago. Si bien no hay autocorrelaciones significativas en rezagos posteriores, este comportamiento en el primer rezago sugiere que el modelo podría beneficiarse de ajustes adicionales para capturar mejor las relaciones a corto plazo en los datos.</p>
-<p>Finalmente, el <strong>Estadístico de Jarque-Bera</strong> y su correspondiente valor p aportan información crucial sobre la normalidad de los residuos. Con un estadístico de 1766.1930 y un valor p de 0.0000, queda claro que los residuos no siguen una distribución normal. Este resultado es significativo y confirma que los residuos presentan una desviación respecto a la normalidad, lo cual podría estar vinculado con los outliers observados en el boxplot y las leves autocorrelaciones vistas en los gráficos de ACF y PACF. Este comportamiento sugiere que el modelo no captura perfectamente todas las características de los datos, especialmente en situaciones extremas, y que podría requerir ajustes adicionales para mejorar su precisión en esos casos.</p>
+<p>Finalmente, el <strong>Estadístico de Jarque-Bera</strong> y su correspondiente valor p aportan información crucial sobre la normalidad de los residuos. Con un estadístico de 1542 y un valor p de 0.0000, queda claro que los residuos no siguen una distribución normal. Este resultado es significativo y confirma que los residuos presentan una desviación respecto a la normalidad, lo cual podría estar vinculado con los outliers observados en el boxplot y las leves autocorrelaciones vistas en los gráficos de ACF y PACF. Este comportamiento sugiere que el modelo no captura perfectamente todas las características de los datos, especialmente en situaciones extremas, y que podría requerir ajustes adicionales para mejorar su precisión en esos casos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -3011,7 +2993,7 @@ R² final: 0.3265
 <span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
 
 <span class="c1"># Calcular los residuos</span>
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">wasserstein_prediction</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>  <span class="c1"># Asegúrate de pasar y_test</span>
 <span class="n">residuals</span> <span class="o">=</span> <span class="n">y_test</span> <span class="o">-</span> <span class="n">predictions</span>
 
 <span class="c1"># Prueba de Jarque-Bera</span>
@@ -3027,15 +3009,15 @@ R² final: 0.3265
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico de Jarque-Bera: 71.2008, Valor p: 0.0000
-Estadístico de Ljung-Box (lag=10): 14.3442, Valor p: 0.1579
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico de Jarque-Bera: 232.8203, Valor p: 0.0000
+Estadístico de Ljung-Box (lag=10): 14.2836, Valor p: 0.1604
 </pre></div>
 </div>
 </div>
 </div>
-<p>El análisis de los residuos del modelo muestra aspectos importantes sobre su rendimiento.</p>
-<p>El Estadístico de Jarque-Bera de 71.2008 con un valor p de 0.0000 indica que los residuos no siguen una distribución normal. Al tener un valor p extremadamente bajo, se rechaza la hipótesis de normalidad, lo que sugiere que los residuos presentan cierta asimetría o curtosis. Aunque este valor es significativamente menor en comparación con resultados anteriores, sigue indicando que el modelo produce residuos alejados de la distribución normal, posiblemente por la presencia de valores atípicos o eventos extremos.</p>
-<p>Por otro lado, el Estadístico de Ljung-Box con un lag de 10 arroja un valor de 14.3442 y un valor p de 0.1579. Esto indica que no hay autocorrelación significativa en los primeros 10 rezagos de los residuos, lo que es positivo para el modelo. La falta de autocorrelación sugiere que el modelo ha capturado correctamente la estructura temporal de la serie hasta ese punto, generando residuos independientes.</p>
+<p>Al analizar los resultados de las pruebas de Jarque-Bera y Ljung-Box para los residuos de mi modelo de predicción, he observado lo siguiente:</p>
+<p>El estadístico de Jarque-Bera es 232.8203, con un valor p de 0.0000. Esto indica que se rechaza la hipótesis nula de normalidad en los residuos. En otras palabras, los residuos no siguen una distribución normal, lo que puede sugerir problemas en el modelo. Esta falta de normalidad podría ser indicativa de heterocedasticidad o de que el modelo no está capturando adecuadamente la relación subyacente en los datos.</p>
+<p>Por otro lado, el estadístico de Ljung-Box es 14.2836, con un valor p de 0.1604. Este resultado indica que no hay evidencia suficiente para rechazar la hipótesis de independencia de los residuos en los primeros 10 lags. Esto es un aspecto positivo, ya que sugiere que el modelo está capturando bien la dinámica temporal de los datos y no presenta autocorrelación significativa.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -3095,19 +3077,22 @@ Estadístico de Ljung-Box (lag=10): 14.3442, Valor p: 0.1579
 <td><p>-0.04</p></td>
 </tr>
 <tr class="row-even"><td><p>Wasserstein Time Series</p></td>
-<td><p>22.67</p></td>
-<td><p>32.94</p></td>
-<td><p>1084.92</p></td>
-<td><p>16.72%</p></td>
-<td><p>0.0641</p></td>
+<td><p>14.3514</p></td>
+<td><p>27.9417</p></td>
+<td><p>780.7400</p></td>
+<td><p>10.6017%</p></td>
+<td><p>0.3265</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>El modelo XGBoost se destaca como la mejor opción para predecir las ventas diarias de pizza en comparación con otros modelos, según los resultados presentados en la tabla. En primer lugar, XGBoost presenta un R² de <strong>0.31</strong>, lo que indica que el modelo explica aproximadamente el 31% de la variabilidad de los datos. Este es un resultado superior en comparación con otros modelos, como el LSTM (-0.04) y el suavizado exponencial (0.00), lo que sugiere que XGBoost captura mejor las relaciones entre las variables.</p>
-<p>Además, con un MAE de <strong>19.52</strong> y un RMSE de <strong>28.38</strong>, el modelo muestra errores de predicción más bajos en comparación con modelos como el suavizado exponencial (MAE de 22.04, RMSE de 33.61) y el LSTM (MAE de 20.85, RMSE de 31.90). Esto indica que las predicciones del XGBoost son más cercanas a los valores reales. Su MAPE de <strong>16.11%</strong> también es relativamente bajo en comparación con el suavizado exponencial (16.59%) y el LSTM (14.87%), lo que implica que la precisión de las predicciones es sólida en términos relativos.</p>
-<p>Otra ventaja de XGBoost es su eficacia en el manejo de características que pueden no tener una relación lineal con la variable objetivo. En este caso, las características temporales, como los rezagos y la media móvil, pueden ser complejas y no lineales, lo que hace que XGBoost, al ser un modelo de árbol, sea muy adecuado para esta tarea. Además, es conocido por su eficiencia computacional y por evitar el sobreajuste gracias a su regularización, lo que permite obtener un modelo robusto sin necesidad de un gran ajuste de hiperparámetros.</p>
-<p>En resumen, el XGBoost se presenta como la mejor opción para nuestro problema de predicción de ventas de pizza, gracias a su capacidad para capturar relaciones complejas en los datos y su rendimiento superior en las métricas de error, lo que sugiere que ofrece predicciones más precisas y confiables en comparación con otros modelos evaluados.</p>
+<p>Al analizar los resultados de la tabla, es evidente que el modelo basado en la distancia de Wasserstein se destaca por su rendimiento superior en comparación con los otros modelos. En primer lugar, el MAE (Error Absoluto Medio) del modelo es de 14.3514, lo que significa que, en promedio, se equivoca en solo 14 pizzas por día. Este valor es notablemente más bajo que el de otros modelos, como el de Red Neuronal Recurrente, que tiene un MAE de 23.60. Este menor MAE es crucial para una planificación operativa eficiente, ya que en un negocio donde cada pizza cuenta, un error más pequeño puede tener un impacto significativo.</p>
+<p>Además, el modelo muestra un buen control de los errores, con un RMSE de 27.9417 y un MSE de 780.7400, valores que son considerablemente más bajos que los de otros enfoques como el Suavizado Exponencial y el Holt-Winters, que presentan RMSE de 33.61 y 31.62, respectivamente. La menor penalización por errores grandes es esencial para evitar desajustes en las predicciones en días de alta demanda, donde la precisión es fundamental.</p>
+<p>El MAPE (Error Porcentual Absoluto Medio) del modelo es de 10.6017%, lo que indica que sus predicciones son un 10.6017% menos que las ventas reales en promedio. Este es un resultado excepcional, ya que un MAPE por debajo del 20% es considerado un buen desempeño en contextos de ventas fluctuantes, lo que sugiere que el modelo proporciona una predicción razonablemente precisa.</p>
+<p>El coeficiente de determinación (R²) del modelo es de 0.3265, lo que significa que aproximadamente el 32.65% de la variabilidad en las ventas puede ser explicado por el modelo. Aunque este valor puede parecer bajo, es notablemente más alto que otros modelos, como el Suavizado Exponencial y el Holt-Winters, lo que indica un potencial significativo de mejora al integrar más variables explicativas.</p>
+<p>El modelo de predicción de ventas basado en la distancia de Wasserstein se fundamenta en conceptos de la teoría de la óptica de transporte. Esta distancia mide la “distancia” entre dos distribuciones de probabilidad, permitiendo comparar cómo se distribuyen las ventas en diferentes períodos de tiempo. Se puede visualizar como mover “masas” de un lugar a otro de la forma más eficiente posible, buscando minimizar el costo de mover la distribución de ventas predicha hacia la distribución de ventas reales.</p>
+<p>Una de las ventajas de esta metodología es su robustez ante outliers, lo que lo hace muy adecuado para las ventas diarias de pizza, influenciadas por factores estacionales, promociones y cambios en el comportamiento del consumidor. Al comparar distribuciones en lugar de solo valores absolutos, el modelo de Wasserstein ofrece una capacidad predictiva que captura la variabilidad inherente en las ventas diarias.</p>
+<p>En conclusión, el modelo basado en la distancia de Wasserstein no solo presenta los mejores resultados en términos de error absoluto y precisión, sino que también se fundamenta en una metodología robusta y efectiva. Al elegir este modelo, se obtiene una herramienta eficaz para la planificación operativa y estratégica en un negocio de pizza, lo que justifica claramente la inversión en este enfoque.</p>
 </section>
 
     <script type="text/x-thebe-config">
